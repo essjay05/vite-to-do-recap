@@ -34,6 +34,12 @@ export default function App() {
     })
   }
 
+  const deleteTodo = ( id ) => {
+    setTodos( currentTodos => {
+      return currentTodos.filter( todo => todo.id !== id)
+    })
+  }
+
   return (
     <>
       <form 
@@ -67,7 +73,8 @@ export default function App() {
                 {todo.title}
               </label>
               <button 
-                className="btn btn-danger">
+                className="btn btn-danger"
+                onClick={() => deleteTodo(todo.id)}>
                 Delete
               </button>
             </li>
